@@ -1,9 +1,9 @@
 
-from agent_sim.agents.base_agent import BaseAgent
+from agent_sim.simulator.simulator_hub import SimulatorHub
 
 def main():
-    agent = BaseAgent("TestAgent")
-    print(f"Agent created: {agent.name}")
+    sim = SimulatorHub(agent_count=10, steps=5)
+    sim.run()
 
 if __name__ == "__main__":
     main()
