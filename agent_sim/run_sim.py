@@ -1,31 +1,28 @@
 
-from agent_sim.simulator.simulator_hub import SimulatorHub
-from agent_sim.agents.base_agent import BaseAgent
+import pandas as pd
 from agent_sim.simulator.free_will_simulator import FreeWillSimulator
+from agent_sim.agents.base_agent import BaseAgent
 from agent_sim.environment.environment_engine import EnvironmentEngine
 from agent_sim.utils.memory_bank import MemoryBank
-import os
 
-def main():
+def run_simulation_with_params(agent_name, override_prob, num_turns):
+    agent = BaseAgent(agent_name)
     env = EnvironmentEngine()
-    agent = BaseAgent("Alice")
+    fw_agent = FreeWillSimulator(agent, override_prob=override_prob)
 
-    # Load previous memory if available
-    mem_file = "agent_alice_memory.json"
-    if os.path.exists(mem_file):
-        MemoryBank.load(agent, mem_file)
-        print(f"Loaded memory for {agent.name}")
+    results = []
 
-    fw_agent = FreeWillSimulator(agent, override_prob=0.5)
-
-    for step in range(5):
+    for i in range(num_turns):
         state = env.get_state()
         decision = fw_agent.decide(state)
-        print(f"[Step {step+1}] State: {state} -> Decision: {decision}")
+        overridden = decision != agent.last_deterministic
+        results.append({
+            "Turn": i + 1,
+            "State": state,
+            "Deterministic": agent.last_deterministic,
+            "Final Decision": decision,
+            "Overridden": overridden
+        })
 
-    # Save memory after run
-    MemoryBank.save(agent, mem_file)
-    print(f"Memory saved to {mem_file}")
-
-if __name__ == "__main__":
-    main()
+    MemoryBank.save(agent, f"{agent_name.lower()}_memory.json")
+    return pd.DataFrame(results)
