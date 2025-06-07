@@ -25,7 +25,7 @@ pip install -e .
 python agent_sim/run_sim.py
 
 # Launch GUI (optional)
-streamlit run agent_sim/app.py
+python3 -m streamlit run agent_sim/app.py
 ```
 
 ## 🧪 Testing
