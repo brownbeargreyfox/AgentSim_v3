@@ -1,0 +1,46 @@
+# Python-related
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+.env/
+
+# IDE-related
+.vscode/
+.idea/
+
+# Logs and outputs
+logs/
+*.log
+*.out
+*.err
+
+# Data files
+*.csv
+*.json
+*.db
+*.sqlite3
+
+# Test coverage reports
+.coverage
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.spec
+
+# Streamlit cache
+.streamlit/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
