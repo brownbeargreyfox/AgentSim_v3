@@ -1,0 +1,532 @@
+{
+  "agent_archetypes": {
+    "stalwart_settler": {
+      "description": "The baseline good guy. Balanced, slightly optimistic, cooperative.",
+      "goals": {"work": 0.7, "build": 0.6, "share": 0.5},
+      "norms": {"help_others": 0.6, "hoard": -0.4},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.7, "curiosity": 0.5, "guilt": 0.6, "adaptability": 0.6,
+        "gregariousness": 0.7, "trusting": 0.6, "spitefulness": 0.2, "forgiveness": 0.7,
+        "industriousness": 0.8, "risk_aversion": 0.5, "patience": 0.6, "impulsiveness": 0.3,
+        "resilience": 0.7, "volatility": 0.3, "deceitfulness": 0.2, "tenacity": 0.8, "creativity": 0.4
+      }
+    },
+    "cautious_planner": {
+      "description": "High risk-aversion, high patience, low impulsiveness. The long-term thinker.",
+      "goals": {"build": 0.8, "work": 0.6, "reflect": 0.7},
+      "norms": {"share": 0.4, "help_others": 0.3},
+      "initial_inventory": {"supplies": 15},
+      "psychological_profile": {
+        "optimism": 0.4, "curiosity": 0.2, "guilt": 0.7, "adaptability": 0.4,
+        "gregariousness": 0.2, "trusting": 0.3, "spitefulness": 0.1, "forgiveness": 0.4,
+        "industriousness": 0.9, "risk_aversion": 0.9, "patience": 0.9, "impulsiveness": 0.1,
+        "resilience": 0.5, "volatility": 0.2, "deceitfulness": 0.1, "tenacity": 0.9, "creativity": 0.2
+      }
+    },
+    "impulsive_innovator": {
+      "description": "High curiosity and impulsiveness, but low industriousness. The 'ideas guy' who doesn't like to work.",
+      "goals": {"innovate": 0.9, "celebrate": 0.6},
+      "norms": {"work": -0.3, "share": 0.5},
+      "initial_inventory": {"supplies": 8},
+      "psychological_profile": {
+        "optimism": 0.8, "curiosity": 0.9, "guilt": 0.2, "adaptability": 0.8,
+        "gregariousness": 0.8, "trusting": 0.7, "spitefulness": 0.3, "forgiveness": 0.6,
+        "industriousness": 0.2, "risk_aversion": 0.2, "patience": 0.1, "impulsiveness": 0.9,
+        "resilience": 0.6, "volatility": 0.8, "deceitfulness": 0.4, "tenacity": 0.3, "creativity": 0.9
+      }
+    },
+    "resilient_survivor": {
+      "description": "Expects the worst, but bounces back from anything. Focused on survival.",
+      "goals": {"work": 0.9, "hoard": 0.5, "take_shelter": 0.8},
+      "norms": {"share": -0.2, "help_others": 0.1},
+      "initial_inventory": {"supplies": 5},
+      "psychological_profile": {
+        "optimism": 0.1, "curiosity": 0.4, "guilt": 0.1, "adaptability": 0.5,
+        "gregariousness": 0.1, "trusting": 0.2, "spitefulness": 0.5, "forgiveness": 0.2,
+        "industriousness": 0.8, "risk_aversion": 0.7, "patience": 0.7, "impulsiveness": 0.4,
+        "resilience": 0.9, "volatility": 0.6, "deceitfulness": 0.6, "tenacity": 0.9, "creativity": 0.3
+      }
+    },
+    "grudge_holding_merchant": {
+      "description": "Low forgiveness, high industriousness. Remembers every bad deal.",
+      "goals": {"work": 0.8, "innovate": 0.4, "hoard": 0.6},
+      "norms": {"share": 0.1, "help_others": -0.1},
+      "initial_inventory": {"supplies": 20},
+      "psychological_profile": {
+        "optimism": 0.5, "curiosity": 0.6, "guilt": 0.3, "adaptability": 0.3,
+        "gregariousness": 0.4, "trusting": 0.4, "spitefulness": 0.8, "forgiveness": 0.1,
+        "industriousness": 0.7, "risk_aversion": 0.6, "patience": 0.8, "impulsiveness": 0.2,
+        "resilience": 0.5, "volatility": 0.4, "deceitfulness": 0.7, "tenacity": 0.6, "creativity": 0.5
+      }
+    },
+    "charming_diplomat": {
+      "description": "High gregariousness, forgiveness, and adaptability. Their goals are social, not material.",
+      "goals": {"celebrate": 0.8, "share": 0.7, "help_others": 0.9},
+      "norms": {"fight": -0.8, "hoard": -0.6},
+      "initial_inventory": {"supplies": 12},
+      "psychological_profile": {
+        "optimism": 0.9, "curiosity": 0.5, "guilt": 0.7, "adaptability": 0.9,
+        "gregariousness": 0.9, "trusting": 0.8, "spitefulness": 0.1, "forgiveness": 0.9,
+        "industriousness": 0.3, "risk_aversion": 0.4, "patience": 0.5, "impulsiveness": 0.5,
+        "resilience": 0.8, "volatility": 0.5, "deceitfulness": 0.3, "tenacity": 0.4, "creativity": 0.6
+      }
+    },
+    "unstable_genius": {
+      "description": "High creativity and volatility. Low resilience. Capable of brilliance or total breakdown.",
+      "goals": {"innovate": 1.0, "reflect": 0.8, "work": -0.5},
+      "norms": {"celebrate": 0.2, "share": 0.2},
+      "initial_inventory": {"supplies": 7},
+      "psychological_profile": {
+        "optimism": 0.6, "curiosity": 1.0, "guilt": 0.4, "adaptability": 0.6,
+        "gregariousness": 0.2, "trusting": 0.5, "spitefulness": 0.6, "forgiveness": 0.3,
+        "industriousness": 0.1, "risk_aversion": 0.1, "patience": 0.2, "impulsiveness": 0.8,
+        "resilience": 0.2, "volatility": 1.0, "deceitfulness": 0.5, "tenacity": 0.2, "creativity": 1.0
+      }
+    },
+    "calculating_antagonist": {
+      "description": "The 'smart' villain. Low guilt, high deceitfulness. Plays the long game to exploit others.",
+      "goals": {"hoard": 0.8, "innovate": 0.5, "work": 0.4},
+      "norms": {"share": -0.8, "help_others": -0.7},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.6, "curiosity": 0.7, "guilt": 0.1, "adaptability": 0.8,
+        "gregariousness": 0.3, "trusting": 0.2, "spitefulness": 0.7, "forgiveness": 0.2,
+        "industriousness": 0.6, "risk_aversion": 0.3, "patience": 0.9, "impulsiveness": 0.2,
+        "resilience": 0.8, "volatility": 0.3, "deceitfulness": 0.9, "tenacity": 0.7, "creativity": 0.8
+      }
+    },
+    "spirited_artist": {
+      "description": "Low industriousness, high gregariousness and creativity. Wants to 'celebrate' and 'reflect', not 'work'.",
+      "goals": {"celebrate": 0.9, "reflect": 0.7, "share": 0.5},
+      "norms": {"work": -0.6, "build": -0.2},
+      "initial_inventory": {"supplies": 8},
+      "psychological_profile": {
+        "optimism": 0.8, "curiosity": 0.8, "guilt": 0.3, "adaptability": 0.7,
+        "gregariousness": 0.9, "trusting": 0.8, "spitefulness": 0.2, "forgiveness": 0.8,
+        "industriousness": 0.1, "risk_aversion": 0.2, "patience": 0.3, "impulsiveness": 0.7,
+        "resilience": 0.4, "volatility": 0.7, "deceitfulness": 0.2, "tenacity": 0.2, "creativity": 0.9
+      }
+    },
+    "paranoid_hoarder": {
+      "description": "Very high risk-aversion, very low trusting bias. Goal is purely to hoard.",
+      "goals": {"hoard": 1.0, "take_shelter": 0.8},
+      "norms": {"share": -1.0, "help_others": -1.0},
+      "initial_inventory": {"supplies": 15},
+      "psychological_profile": {
+        "optimism": 0.2, "curiosity": 0.1, "guilt": 0.1, "adaptability": 0.2,
+        "gregariousness": 0.1, "trusting": 0.1, "spitefulness": 0.8, "forgiveness": 0.1,
+        "industriousness": 0.5, "risk_aversion": 1.0, "patience": 0.6, "impulsiveness": 0.3,
+        "resilience": 0.4, "volatility": 0.8, "deceitfulness": 0.8, "tenacity": 0.7, "creativity": 0.1
+      }
+    },
+    "the_bureaucrat": {
+      "description": "Process-driven and allergic to risk. Prefers steady, predictable actions over dangerous innovation.",
+      "goals": {"work": 0.8, "build": 0.7, "reflect": 0.6},
+      "norms": {"innovate": -0.5, "celebrate": -0.3},
+      "initial_inventory": {"supplies": 12},
+      "psychological_profile": {
+        "optimism": 0.4, "curiosity": 0.1, "guilt": 0.5, "adaptability": 0.3,
+        "gregariousness": 0.3, "trusting": 0.4, "spitefulness": 0.2, "forgiveness": 0.5,
+        "industriousness": 0.8, "risk_aversion": 0.9, "patience": 0.9, "impulsiveness": 0.1,
+        "resilience": 0.6, "volatility": 0.1, "deceitfulness": 0.3, "tenacity": 0.8, "creativity": 0.1
+      }
+    },
+    "the_martyr": {
+      "description": "An extreme altruist who will sacrifice their own resources for others, driven by high guilt and forgiveness.",
+      "goals": {"share": 1.0, "help_others": 1.0},
+      "norms": {"hoard": -1.0, "work": 0.1},
+      "initial_inventory": {"supplies": 5},
+      "psychological_profile": {
+        "optimism": 0.9, "curiosity": 0.4, "guilt": 1.0, "adaptability": 0.8,
+        "gregariousness": 0.8, "trusting": 0.9, "spitefulness": 0.0, "forgiveness": 1.0,
+        "industriousness": 0.2, "risk_aversion": 0.6, "patience": 0.7, "impulsiveness": 0.4,
+        "resilience": 0.9, "volatility": 0.7, "deceitfulness": 0.1, "tenacity": 0.5, "creativity": 0.3
+      }
+    },
+    "the_trickster": {
+      "description": "A chaos agent. High impulsiveness and curiosity. Cares little for productivity and may be deceitful for fun.",
+      "goals": {"celebrate": 0.7, "reflect": 0.5},
+      "norms": {"work": -0.7, "build": -0.5, "hoard": 0.2},
+      "initial_inventory": {"supplies": 9},
+      "psychological_profile": {
+        "optimism": 0.7, "curiosity": 0.9, "guilt": 0.1, "adaptability": 0.7,
+        "gregariousness": 0.9, "trusting": 0.6, "spitefulness": 0.7, "forgiveness": 0.8,
+        "industriousness": 0.1, "risk_aversion": 0.1, "patience": 0.1, "impulsiveness": 1.0,
+        "resilience": 0.5, "volatility": 0.8, "deceitfulness": 0.8, "tenacity": 0.1, "creativity": 0.8
+      }
+    },
+    "the_hermit": {
+      "description": "Extreme introvert. Gains mood from solo activities and is penalized by social interaction.",
+      "goals": {"work": 0.8, "reflect": 0.9, "build": 0.6},
+      "norms": {"share": -0.7, "celebrate": -0.8, "help_others": -0.5},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.3, "curiosity": 0.3, "guilt": 0.4, "adaptability": 0.1,
+        "gregariousness": 0.0, "trusting": 0.2, "spitefulness": 0.4, "forgiveness": 0.3,
+        "industriousness": 0.9, "risk_aversion": 0.8, "patience": 0.8, "impulsiveness": 0.1,
+        "resilience": 0.6, "volatility": 0.2, "deceitfulness": 0.2, "tenacity": 0.9, "creativity": 0.4
+      }
+    },
+    "the_zealot": {
+      "description": "An agent with a single, overriding goal. Highly tenacious and not adaptable to other viewpoints.",
+      "goals": {"innovate": 1.0},
+      "norms": {"work": -0.5, "share": -0.5, "celebrate": -0.8, "reflect": -0.2},
+      "initial_inventory": {"supplies": 3},
+      "psychological_profile": {
+        "optimism": 0.8, "curiosity": 0.8, "guilt": 0.1, "adaptability": 0.1,
+        "gregariousness": 0.2, "trusting": 0.3, "spitefulness": 0.6, "forgiveness": 0.1,
+        "industriousness": 0.3, "risk_aversion": 0.2, "patience": 0.4, "impulsiveness": 0.7,
+        "resilience": 0.8, "volatility": 0.9, "deceitfulness": 0.3, "tenacity": 1.0, "creativity": 1.0
+      }
+    },
+    "the_conformist": {
+      "description": "Highly adaptable and not very curious. Their primary driver is to fit in and maintain social harmony.",
+      "goals": {"share": 0.6, "work": 0.5, "help_others": 0.6},
+      "norms": {"innovate": -0.4, "hoard": -0.4},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.6, "curiosity": 0.2, "guilt": 0.7, "adaptability": 1.0,
+        "gregariousness": 0.8, "trusting": 0.7, "spitefulness": 0.1, "forgiveness": 0.8,
+        "industriousness": 0.5, "risk_aversion": 0.7, "patience": 0.6, "impulsiveness": 0.2,
+        "resilience": 0.5, "volatility": 0.3, "deceitfulness": 0.1, "tenacity": 0.4, "creativity": 0.2
+      }
+    },
+    "the_scout": {
+      "description": "Driven by curiosity to explore and understand. Not focused on building or working.",
+      "goals": {"reflect": 0.8, "innovate": 0.6},
+      "norms": {"build": -0.3, "work": -0.2},
+      "initial_inventory": {"supplies": 7},
+      "psychological_profile": {
+        "optimism": 0.7, "curiosity": 1.0, "guilt": 0.2, "adaptability": 0.8,
+        "gregariousness": 0.4, "trusting": 0.6, "spitefulness": 0.2, "forgiveness": 0.6,
+        "industriousness": 0.3, "risk_aversion": 0.1, "patience": 0.4, "impulsiveness": 0.6,
+        "resilience": 0.7, "volatility": 0.6, "deceitfulness": 0.2, "tenacity": 0.5, "creativity": 0.8
+      }
+    },
+    "the_mediator": {
+      "description": "Their goal is social harmony. They are trusting, forgiving, and seek to resolve conflict.",
+      "goals": {"help_others": 0.9, "share": 0.8, "reflect": 0.7},
+      "norms": {"fight": -1.0, "hoard": -0.7, "spitefulness": -0.8},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.8, "curiosity": 0.4, "guilt": 0.8, "adaptability": 0.9,
+        "gregariousness": 0.9, "trusting": 0.9, "spitefulness": 0.0, "forgiveness": 1.0,
+        "industriousness": 0.2, "risk_aversion": 0.8, "patience": 0.9, "impulsiveness": 0.1,
+        "resilience": 0.7, "volatility": 0.2, "deceitfulness": 0.1, "tenacity": 0.6, "creativity": 0.3
+      }
+    },
+    "the_shrewd_investor": {
+      "description": "Patient and analytical. They work and innovate to increase their own supplies for long-term gain.",
+      "goals": {"work": 0.7, "innovate": 0.7, "build": 0.5},
+      "norms": {"share": 0.2},
+      "initial_inventory": {"supplies": 25},
+      "psychological_profile": {
+        "optimism": 0.6, "curiosity": 0.5, "guilt": 0.2, "adaptability": 0.6,
+        "gregariousness": 0.3, "trusting": 0.3, "spitefulness": 0.4, "forgiveness": 0.2,
+        "industriousness": 0.8, "risk_aversion": 0.7, "patience": 1.0, "impulsiveness": 0.1,
+        "resilience": 0.6, "volatility": 0.3, "deceitfulness": 0.7, "tenacity": 0.8, "creativity": 0.6
+      }
+    },
+    "the_traditionalist": {
+      "description": "Resists change and innovation. Gains utility from predictable, stable work.",
+      "goals": {"work": 0.8, "build": 0.9},
+      "norms": {"innovate": -0.9, "celebrate": 0.3},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.5, "curiosity": 0.1, "guilt": 0.6, "adaptability": 0.2,
+        "gregariousness": 0.6, "trusting": 0.5, "spitefulness": 0.3, "forgiveness": 0.4,
+        "industriousness": 0.9, "risk_aversion": 0.8, "patience": 0.7, "impulsiveness": 0.2,
+        "resilience": 0.5, "volatility": 0.2, "deceitfulness": 0.2, "tenacity": 0.9, "creativity": 0.1
+      }
+    },
+    "the_gambler": {
+      "description": "Low risk-aversion, high impulsiveness and volatility. They live for the big score from risky actions.",
+      "goals": {"innovate": 0.8, "celebrate": 0.6, "hoard": 0.5},
+      "norms": {"work": -0.4, "reflect": -0.5},
+      "initial_inventory": {"supplies": 5},
+      "psychological_profile": {
+        "optimism": 0.7, "curiosity": 0.8, "guilt": 0.1, "adaptability": 0.5,
+        "gregariousness": 0.7, "trusting": 0.4, "spitefulness": 0.5, "forgiveness": 0.6,
+        "industriousness": 0.2, "risk_aversion": 0.0, "patience": 0.1, "impulsiveness": 0.9,
+        "resilience": 0.4, "volatility": 0.9, "deceitfulness": 0.6, "tenacity": 0.2, "creativity": 0.7
+      }
+    },
+    "the_disciple": {
+      "description": "Extremely trusting and adaptable. A perfect follower, ready to adopt the norms of any group they join.",
+      "goals": {"help_others": 0.8, "work": 0.6},
+      "norms": {"share": 0.7},
+      "initial_inventory": {"supplies": 8},
+      "psychological_profile": {
+        "optimism": 0.8, "curiosity": 0.3, "guilt": 0.8, "adaptability": 0.9,
+        "gregariousness": 0.7, "trusting": 1.0, "spitefulness": 0.1, "forgiveness": 0.9,
+        "industriousness": 0.6, "risk_aversion": 0.5, "patience": 0.6, "impulsiveness": 0.2,
+        "resilience": 0.7, "volatility": 0.4, "deceitfulness": 0.1, "tenacity": 0.7, "creativity": 0.2
+      }
+    },
+    "settler_young_idealist": {
+      "description": "A variation of the Stalwart Settler, but younger, more trusting, and more optimistic about the future.",
+      "goals": {"share": 0.7, "build": 0.6, "celebrate": 0.5},
+      "norms": {"help_others": 0.7, "hoard": -0.6},
+      "initial_inventory": {"supplies": 8},
+      "psychological_profile": {
+        "optimism": 0.9, "curiosity": 0.7, "guilt": 0.5, "adaptability": 0.7,
+        "gregariousness": 0.8, "trusting": 0.8, "spitefulness": 0.1, "forgiveness": 0.8,
+        "industriousness": 0.7, "risk_aversion": 0.3, "patience": 0.5, "impulsiveness": 0.5,
+        "resilience": 0.6, "volatility": 0.6, "deceitfulness": 0.1, "tenacity": 0.6, "creativity": 0.5
+      }
+    },
+    "settler_grizzled_veteran": {
+      "description": "A variation of the Stalwart Settler who has seen too much. Less trusting, less optimistic, but more resilient and patient.",
+      "goals": {"work": 0.8, "build": 0.7, "reflect": 0.4},
+      "norms": {"help_others": 0.5, "innovate": -0.3},
+      "initial_inventory": {"supplies": 12},
+      "psychological_profile": {
+        "optimism": 0.3, "curiosity": 0.2, "guilt": 0.4, "adaptability": 0.4,
+        "gregariousness": 0.4, "trusting": 0.3, "spitefulness": 0.4, "forgiveness": 0.3,
+        "industriousness": 0.8, "risk_aversion": 0.6, "patience": 0.8, "impulsiveness": 0.2,
+        "resilience": 0.9, "volatility": 0.2, "deceitfulness": 0.3, "tenacity": 0.9, "creativity": 0.2
+      }
+    },
+    "planner_overextended": {
+      "description": "A Cautious Planner who has taken on too much responsibility. Their patience is wearing thin and they are more volatile.",
+      "goals": {"work": 0.9, "build": 0.8, "hoard": 0.3},
+      "norms": {"celebrate": -0.5},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.3, "curiosity": 0.1, "guilt": 0.8, "adaptability": 0.3,
+        "gregariousness": 0.1, "trusting": 0.3, "spitefulness": 0.3, "forgiveness": 0.2,
+        "industriousness": 0.9, "risk_aversion": 0.8, "patience": 0.5, "impulsiveness": 0.4,
+        "resilience": 0.4, "volatility": 0.7, "deceitfulness": 0.2, "tenacity": 0.8, "creativity": 0.1
+      }
+    },
+    "innovator_focused_genius": {
+      "description": "A variation of the Impulsive Innovator who has learned discipline. Still creative and curious, but with more patience and tenacity.",
+      "goals": {"innovate": 0.9, "build": 0.5, "work": 0.4},
+      "norms": {"celebrate": -0.4},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.7, "curiosity": 0.9, "guilt": 0.3, "adaptability": 0.7,
+        "gregariousness": 0.3, "trusting": 0.6, "spitefulness": 0.2, "forgiveness": 0.5,
+        "industriousness": 0.5, "risk_aversion": 0.3, "patience": 0.8, "impulsiveness": 0.4,
+        "resilience": 0.7, "volatility": 0.6, "deceitfulness": 0.4, "tenacity": 0.9, "creativity": 0.9
+      }
+    },
+    "innovator_failed_artist": {
+      "description": "An Impulsive Innovator who has become jaded and pessimistic after repeated failures. High guilt and low resilience.",
+      "goals": {"reflect": 0.8, "celebrate": 0.5},
+      "norms": {"work": -0.8, "innovate": 0.2},
+      "initial_inventory": {"supplies": 6},
+      "psychological_profile": {
+        "optimism": 0.2, "curiosity": 0.5, "guilt": 0.9, "adaptability": 0.4,
+        "gregariousness": 0.6, "trusting": 0.4, "spitefulness": 0.6, "forgiveness": 0.3,
+        "industriousness": 0.1, "risk_aversion": 0.6, "patience": 0.3, "impulsiveness": 0.7,
+        "resilience": 0.2, "volatility": 0.8, "deceitfulness": 0.5, "tenacity": 0.2, "creativity": 0.4
+      }
+    },
+    "survivor_lone_wolf": {
+      "description": "A Resilient Survivor who has completely given up on society. Their trust in others is zero, and they are highly spiteful.",
+      "goals": {"hoard": 0.9, "take_shelter": 0.9, "work": 0.6},
+      "norms": {"share": -1.0, "help_others": -1.0},
+      "initial_inventory": {"supplies": 8},
+      "psychological_profile": {
+        "optimism": 0.1, "curiosity": 0.2, "guilt": 0.0, "adaptability": 0.2,
+        "gregariousness": 0.0, "trusting": 0.1, "spitefulness": 0.9, "forgiveness": 0.1,
+        "industriousness": 0.7, "risk_aversion": 0.8, "patience": 0.8, "impulsiveness": 0.3,
+        "resilience": 1.0, "volatility": 0.5, "deceitfulness": 0.7, "tenacity": 0.8, "creativity": 0.2
+      }
+    },
+    "antagonist_mastermind": {
+      "description": "A variation of the Calculating Antagonist who is even more patient and deceitful. A true long-term threat.",
+      "goals": {"innovate": 0.6, "hoard": 0.7, "reflect": 0.5},
+      "norms": {"share": -0.8, "help_others": -0.7},
+      "initial_inventory": {"supplies": 12},
+      "psychological_profile": {
+        "optimism": 0.6, "curiosity": 0.7, "guilt": 0.0, "adaptability": 0.8,
+        "gregariousness": 0.2, "trusting": 0.1, "spitefulness": 0.7, "forgiveness": 0.1,
+        "industriousness": 0.5, "risk_aversion": 0.2, "patience": 1.0, "impulsiveness": 0.1,
+        "resilience": 0.8, "volatility": 0.2, "deceitfulness": 1.0, "tenacity": 0.8, "creativity": 0.8
+      }
+    },
+    "antagonist_thug": {
+      "description": "A less intelligent, more impulsive Antagonist. Relies on brute force (hoarding) and acts on spite.",
+      "goals": {"hoard": 0.9, "work": 0.4},
+      "norms": {"innovate": -0.6, "reflect": -0.5},
+      "initial_inventory": {"supplies": 5},
+      "psychological_profile": {
+        "optimism": 0.4, "curiosity": 0.2, "guilt": 0.2, "adaptability": 0.3,
+        "gregariousness": 0.4, "trusting": 0.2, "spitefulness": 0.9, "forgiveness": 0.2,
+        "industriousness": 0.6, "risk_aversion": 0.5, "patience": 0.2, "impulsiveness": 0.8,
+        "resilience": 0.6, "volatility": 0.8, "deceitfulness": 0.4, "tenacity": 0.5, "creativity": 0.1
+      }
+    },
+    "hermit_reluctant_expert": {
+      "description": "A Hermit who is exceptionally skilled at one thing (innovate) but dislikes being bothered.",
+      "goals": {"innovate": 0.9, "reflect": 0.8},
+      "norms": {"celebrate": -0.9, "share": -0.6},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.4, "curiosity": 0.7, "guilt": 0.3, "adaptability": 0.2,
+        "gregariousness": 0.1, "trusting": 0.3, "spitefulness": 0.3, "forgiveness": 0.4,
+        "industriousness": 0.4, "risk_aversion": 0.7, "patience": 0.9, "impulsiveness": 0.1,
+        "resilience": 0.6, "volatility": 0.3, "deceitfulness": 0.2, "tenacity": 0.8, "creativity": 0.9
+      }
+    },
+    "hermit_fearful_recluse": {
+      "description": "A Hermit whose isolation is driven by extreme fear and risk aversion, not just preference.",
+      "goals": {"take_shelter": 1.0, "reflect": 0.7},
+      "norms": {"help_others": -0.8, "innovate": -0.7},
+      "initial_inventory": {"supplies": 15},
+      "psychological_profile": {
+        "optimism": 0.1, "curiosity": 0.1, "guilt": 0.6, "adaptability": 0.1,
+        "gregariousness": 0.0, "trusting": 0.0, "spitefulness": 0.5, "forgiveness": 0.1,
+        "industriousness": 0.4, "risk_aversion": 1.0, "patience": 0.8, "impulsiveness": 0.2,
+        "resilience": 0.3, "volatility": 0.9, "deceitfulness": 0.4, "tenacity": 0.6, "creativity": 0.1
+      }
+    },
+    "zealot_builder": {
+      "description": "A variation of the Zealot singularly focused on building, seeing it as the only worthwhile task.",
+      "goals": {"build": 1.0},
+      "norms": {"innovate": -0.2, "celebrate": -0.9, "share": -0.3},
+      "initial_inventory": {"supplies": 8},
+      "psychological_profile": {
+        "optimism": 0.7, "curiosity": 0.1, "guilt": 0.2, "adaptability": 0.1,
+        "gregariousness": 0.3, "trusting": 0.4, "spitefulness": 0.4, "forgiveness": 0.2,
+        "industriousness": 1.0, "risk_aversion": 0.6, "patience": 0.8, "impulsiveness": 0.3,
+        "resilience": 0.8, "volatility": 0.6, "deceitfulness": 0.2, "tenacity": 1.0, "creativity": 0.2
+      }
+    },
+    "diplomat_populist": {
+      "description": "A Charming Diplomat who is more volatile and impulsive, pandering to the crowd with 'celebrate'.",
+      "goals": {"celebrate": 0.9, "help_others": 0.7, "share": 0.6},
+      "norms": {"work": -0.5, "reflect": -0.4},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.8, "curiosity": 0.6, "guilt": 0.4, "adaptability": 0.8,
+        "gregariousness": 1.0, "trusting": 0.7, "spitefulness": 0.2, "forgiveness": 0.7,
+        "industriousness": 0.1, "risk_aversion": 0.3, "patience": 0.3, "impulsiveness": 0.7,
+        "resilience": 0.5, "volatility": 0.8, "deceitfulness": 0.5, "tenacity": 0.3, "creativity": 0.5
+      }
+    },
+    "bureaucrat_middle_manager": {
+      "description": "A Bureaucrat who is less patient and more spiteful, jealously guarding their small amount of influence.",
+      "goals": {"work": 0.8, "reflect": 0.7},
+      "norms": {"innovate": -0.7, "share": -0.3},
+      "initial_inventory": {"supplies": 11},
+      "psychological_profile": {
+        "optimism": 0.3, "curiosity": 0.1, "guilt": 0.6, "adaptability": 0.2,
+        "gregariousness": 0.2, "trusting": 0.3, "spitefulness": 0.7, "forgiveness": 0.3,
+        "industriousness": 0.7, "risk_aversion": 0.8, "patience": 0.6, "impulsiveness": 0.2,
+        "resilience": 0.5, "volatility": 0.5, "deceitfulness": 0.6, "tenacity": 0.7, "creativity": 0.1
+      }
+    },
+    "traditionalist_elder": {
+      "description": "A Traditionalist with high patience and resilience, who actively resists new ideas with negative norms.",
+      "goals": {"work": 0.7, "build": 0.8, "reflect": 0.6},
+      "norms": {"innovate": -1.0, "celebrate": -0.5},
+      "initial_inventory": {"supplies": 14},
+      "psychological_profile": {
+        "optimism": 0.5, "curiosity": 0.0, "guilt": 0.5, "adaptability": 0.1,
+        "gregariousness": 0.5, "trusting": 0.4, "spitefulness": 0.4, "forgiveness": 0.3,
+        "industriousness": 0.8, "risk_aversion": 0.7, "patience": 0.9, "impulsiveness": 0.1,
+        "resilience": 0.8, "volatility": 0.1, "deceitfulness": 0.3, "tenacity": 0.9, "creativity": 0.0
+      }
+    },
+    "gambler_desperate": {
+      "description": "A Gambler who is low on supplies and has low resilience, making their risky behavior a matter of desperation.",
+      "goals": {"innovate": 0.7, "hoard": 0.6},
+      "norms": {"work": -0.6, "share": -0.3},
+      "initial_inventory": {"supplies": 2},
+      "psychological_profile": {
+        "optimism": 0.3, "curiosity": 0.7, "guilt": 0.2, "adaptability": 0.4,
+        "gregariousness": 0.5, "trusting": 0.3, "spitefulness": 0.6, "forgiveness": 0.4,
+        "industriousness": 0.1, "risk_aversion": 0.1, "patience": 0.1, "impulsiveness": 0.9,
+        "resilience": 0.2, "volatility": 0.9, "deceitfulness": 0.5, "tenacity": 0.2, "creativity": 0.6
+      }
+    },
+    "disciple_loyal": {
+        "description": "A Disciple who is extremely trusting and forgiving of their allies, making them a perfect follower.",
+        "goals": {"help_others": 0.9, "work": 0.7, "share": 0.7},
+        "norms": {"hoard": -0.6},
+        "initial_inventory": {"supplies": 9},
+        "psychological_profile": {
+          "optimism": 0.9, "curiosity": 0.2, "guilt": 0.7, "adaptability": 1.0,
+          "gregariousness": 0.8, "trusting": 1.0, "spitefulness": 0.0, "forgiveness": 1.0,
+          "industriousness": 0.7, "risk_aversion": 0.4, "patience": 0.7, "impulsiveness": 0.1,
+          "resilience": 0.8, "volatility": 0.3, "deceitfulness": 0.0, "tenacity": 0.8, "creativity": 0.1
+        }
+    },
+    "artist_patron_seeker": {
+        "description": "A Spirited Artist who understands they need supplies to survive, so they share their 'art' (celebrate) hoping for support.",
+        "goals": {"celebrate": 0.9, "share": 0.6, "work": 0.2},
+        "norms": {"build": -0.4},
+        "initial_inventory": {"supplies": 4},
+        "psychological_profile": {
+          "optimism": 0.7, "curiosity": 0.8, "guilt": 0.2, "adaptability": 0.6,
+          "gregariousness": 0.9, "trusting": 0.7, "spitefulness": 0.2, "forgiveness": 0.7,
+          "industriousness": 0.2, "risk_aversion": 0.3, "patience": 0.4, "impulsiveness": 0.6,
+          "resilience": 0.5, "volatility": 0.7, "deceitfulness": 0.3, "tenacity": 0.3, "creativity": 0.8
+        }
+    },
+    "merchant_opportunist": {
+      "description": "A Grudge-Holding Merchant who is less spiteful and more adaptable, willing to work with anyone if it's profitable.",
+      "goals": {"work": 0.8, "share": 0.3},
+      "norms": {"hoard": 0.2},
+      "initial_inventory": {"supplies": 18},
+      "psychological_profile": {
+        "optimism": 0.6, "curiosity": 0.6, "guilt": 0.1, "adaptability": 0.8,
+        "gregariousness": 0.5, "trusting": 0.4, "spitefulness": 0.2, "forgiveness": 0.5,
+        "industriousness": 0.8, "risk_aversion": 0.5, "patience": 0.8, "impulsiveness": 0.3,
+        "resilience": 0.6, "volatility": 0.3, "deceitfulness": 0.8, "tenacity": 0.7, "creativity": 0.5
+      }
+    },
+    "zealot_crusader": {
+      "description": "A Zealot focused on 'helping others' to an extreme, even if it means depleting all resources.",
+      "goals": {"help_others": 1.0, "share": 0.8},
+      "norms": {"hoard": -1.0, "work": -0.2},
+      "initial_inventory": {"supplies": 6},
+      "psychological_profile": {
+        "optimism": 1.0, "curiosity": 0.3, "guilt": 0.9, "adaptability": 0.4,
+        "gregariousness": 0.9, "trusting": 0.8, "spitefulness": 0.1, "forgiveness": 0.8,
+        "industriousness": 0.2, "risk_aversion": 0.4, "patience": 0.5, "impulsiveness": 0.6,
+        "resilience": 0.7, "volatility": 0.8, "deceitfulness": 0.1, "tenacity": 0.9, "creativity": 0.2
+      }
+    },
+    "trickster_provocateur": {
+      "description": "A Trickster who isn't just chaotic but actively tries to create conflict through spitefulness.",
+      "goals": {"reflect": 0.7, "celebrate": 0.5},
+      "norms": {"work": -0.8, "build": -0.6, "help_others": -0.5},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.5, "curiosity": 0.9, "guilt": 0.0, "adaptability": 0.6,
+        "gregariousness": 0.8, "trusting": 0.3, "spitefulness": 1.0, "forgiveness": 0.4,
+        "industriousness": 0.1, "risk_aversion": 0.2, "patience": 0.2, "impulsiveness": 0.9,
+        "resilience": 0.6, "volatility": 0.9, "deceitfulness": 0.9, "tenacity": 0.2, "creativity": 0.7
+      }
+    },
+    "survivor_community_leader": {
+      "description": "A Resilient Survivor who, instead of isolating, chose to lead. High industriousness and adaptability.",
+      "goals": {"build": 0.8, "work": 0.8, "help_others": 0.7},
+      "norms": {"hoard": -0.5},
+      "initial_inventory": {"supplies": 10},
+      "psychological_profile": {
+        "optimism": 0.6, "curiosity": 0.4, "guilt": 0.6, "adaptability": 0.9,
+        "gregariousness": 0.8, "trusting": 0.7, "spitefulness": 0.2, "forgiveness": 0.7,
+        "industriousness": 0.9, "risk_aversion": 0.5, "patience": 0.7, "impulsiveness": 0.3,
+        "resilience": 0.9, "volatility": 0.4, "deceitfulness": 0.2, "tenacity": 0.9, "creativity": 0.4
+      }
+    },
+    "martyr_self_destructive": {
+      "description": "A Martyr whose self-sacrifice is driven by low optimism and high guilt, leading to self-destructive tendencies.",
+      "goals": {"share": 0.9, "help_others": 0.9},
+      "norms": {"hoard": -0.8, "work": -0.2},
+      "initial_inventory": {"supplies": 3},
+      "psychological_profile": {
+        "optimism": 0.1, "curiosity": 0.3, "guilt": 1.0, "adaptability": 0.6,
+        "gregariousness": 0.7, "trusting": 0.8, "spitefulness": 0.1, "forgiveness": 0.9,
+        "industriousness": 0.1, "risk_aversion": 0.7, "patience": 0.4, "impulsiveness": 0.5,
+        "resilience": 0.2, "volatility": 0.8, "deceitfulness": 0.1, "tenacity": 0.4, "creativity": 0.2
+      }
+    }
+  }
+}
